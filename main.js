@@ -23,6 +23,11 @@ function modelLoaded(){
     console.log("Model Loaded!");
 }
 
+var synth = window.speechSynthesis;
+    speak_data = "This is a "+ results[0].label;
+    var utterthis = new SpeechSynthesisUtterance(speak_data);
+    synth.speak(utterthis);
+
 function check() {
     image = document.getElementById('captured_image');
     classifier.classify(image, gotResult);
@@ -38,3 +43,4 @@ function gotResult(error, results){
         document.getElementById("result_object_accuracy").innerHTML = results[0].confidence.toFixed(3);
     }
 }
+
